@@ -1,5 +1,7 @@
-import React, { useState } from "react"
-import { notesRef } from "./firebase"
+import React, { useState } from "react";
+import { notesRef } from "./firebase";
+import "./form.css";
+
 
 function CreateNote() {
 	const [ note, setNote ] = useState("")
@@ -15,9 +17,11 @@ function CreateNote() {
 	}
 
 	return (
-		<form onSubmit={createNote}>
-			<input type="text" value={note} onChange={(e) => setNote(e.target.value)} placeholder="Create a note" />
-		</form>
+		<div className="card">
+			<form onSubmit={createNote}>
+				<input type="text" value={note} onChange={(e) => setNote(e.target.value)} placeholder="Create a note" />
+			</form>
+		</div>
 	)
 }
 
