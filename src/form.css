@@ -17,6 +17,7 @@
     height: 250px;
     display: inline-block;
     margin: 3%;
+    font-size: 140%;
 }
 
 .reservoirCard {
@@ -27,6 +28,7 @@
     height: 250px;
     display: inline-block;
     margin: 3%;
+    font-size: 140%;
 }
 
 .condominiumCard {
@@ -37,4 +39,5 @@
     height: 250px;
     display: inline-block;
     margin: 3%;
+    font-size: 140%;
 }

@@ -10,15 +10,15 @@ const firebaseValues = ["Carregando os Dados..."];
 const dataContext = React.createContext(firebaseValues);
 
 
-const tankValues = ["Carregando nīvel do tanque..."];
+const tankValues = ["Carregando..."];
 const tankContext = React.createContext(tankValues);
 
 
-const reservoirValues = ["Carregando nível do reservatório..."];
+const reservoirValues = ["Carregando..."];
 const reservoirContext = React.createContext(reservoirValues);
 
 
-const condominiumValues = ["Carregando nível do condomínio..."];
+const condominiumValues = ["Carregando..."];
 const condominiumContext = React.createContext(condominiumValues);
 
 
@@ -102,28 +102,31 @@ function ReadNotes() {
             </div>
 
             <div onClick={updateTank} className="tankCard">
-                <img src={tank_asset} alt="Tank" />;
+                <img src={tank_asset} alt="Tank" />
+                <p>Tank Level</p>
                 <tankContext.Provider value = {tankValue}>
                         <tankContext.Consumer>
-                            {value => <p>Nível do tanque: {value}%</p>}
+                            {value => <p>{value}%</p>}
                         </tankContext.Consumer>
                     </tankContext.Provider>
             </div>
 
             <div onClick={updateReservoir} className="reservoirCard">
-                <img src={reservoir_asset} alt="Tank" />;
+                <img src={reservoir_asset} alt="Tank" />
+                <p>Reservoir Level</p>
                 <reservoirContext.Provider value = {reservoirValue}>
                         <reservoirContext.Consumer>
-                            {value => <p>Nível do reservatório: {value}%</p>}
+                            {value => <p>{value}%</p>}
                         </reservoirContext.Consumer>
                     </reservoirContext.Provider>
             </div>
 
             <div onClick={updateCondominium} className="condominiumCard">
-                <img src={condominium_asset} alt="Tank" />;
+                <img src={condominium_asset} alt="Tank" />
+                <p>Condominium Level</p>
                 <condominiumContext.Provider value = {condominiumValue}>
                         <condominiumContext.Consumer>
-                            {value => <p>Nível do condomínio: {value}%</p>}
+                            {value => <p>{value}%</p>}
                         </condominiumContext.Consumer>
                     </condominiumContext.Provider>
             </div>
