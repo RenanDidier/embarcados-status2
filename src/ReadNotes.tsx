@@ -1,6 +1,9 @@
 import React,{useEffect, useContext, useState} from 'react';
-import { notesRef, tank, reservoir } from "./firebase";
+import { notesRef, tank, reservoir, condominium } from "./firebase";
 import "./form.css";
+import tank_asset from "./assets/tank_asset.png"
+import reservoir_asset from "./assets/reservoir_asset.png"
+import condominium_asset from "./assets/condominium_asset.png"
 
 
 const firebaseValues = ["Carregando os Dados..."];
@@ -13,6 +16,10 @@ const tankContext = React.createContext(tankValues);
 
 const reservoirValues = ["Carregando nível do reservatório..."];
 const reservoirContext = React.createContext(reservoirValues);
+
+
+const condominiumValues = ["Carregando nível do condomínio..."];
+const condominiumContext = React.createContext(condominiumValues);
 
 
 function ReadNotes() {
@@ -31,6 +38,10 @@ function ReadNotes() {
     const [reservoirValue, setReservoir] = useState(values3);
 
 
+    const values4 = useContext(condominiumContext);
+    const [condominiumValue, setCondominium] = useState(values4);
+
+
     useEffect(() => {
         notesRef.once('value', (snap) => {
             if (update === 0) {
@@ -41,6 +52,7 @@ function ReadNotes() {
                 setState(updatedList);
                 updateTank();
                 updateReservoir();
+                updateCondominium();
                 setUpdate(1);
             }
           });
@@ -72,6 +84,13 @@ function ReadNotes() {
     }
 
 
+    function updateCondominium() {
+        condominium.once('value', (snap) => {
+            setCondominium([JSON.stringify(snap)]);
+        })
+    }
+
+
     return (
         <div>
             <div onClick={teste}>
@@ -82,20 +101,31 @@ function ReadNotes() {
                 </dataContext.Provider>
             </div>
 
-            <div onClick={updateTank}>
+            <div onClick={updateTank} className="tankCard">
+                <img src={tank_asset} alt="Tank" />;
                 <tankContext.Provider value = {tankValue}>
                         <tankContext.Consumer>
-                            {value => <p>Nível do tank: {value}%</p>}
+                            {value => <p>Nível do tanque: {value}%</p>}
                         </tankContext.Consumer>
                     </tankContext.Provider>
             </div>
 
-            <div onClick={updateReservoir}>
+            <div onClick={updateReservoir} className="reservoirCard">
+                <img src={reservoir_asset} alt="Tank" />;
                 <reservoirContext.Provider value = {reservoirValue}>
                         <reservoirContext.Consumer>
                             {value => <p>Nível do reservatório: {value}%</p>}
                         </reservoirContext.Consumer>
                     </reservoirContext.Provider>
+            </div>
+
+            <div onClick={updateCondominium} className="condominiumCard">
+                <img src={condominium_asset} alt="Tank" />;
+                <condominiumContext.Provider value = {condominiumValue}>
+                        <condominiumContext.Consumer>
+                            {value => <p>Nível do condomínio: {value}%</p>}
+                        </condominiumContext.Consumer>
+                    </condominiumContext.Provider>
             </div>
         </div>
     );

@@ -17,4 +17,5 @@ const databaseRef = firebase.database().ref();
 export const notesRef = databaseRef.child("water-manage");
 export const tank = databaseRef.child("tank");
 export const reservoir = databaseRef.child("reservoir");
+export const condominium = databaseRef.child("condominium");
 export default firebase;

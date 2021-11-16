@@ -4,6 +4,37 @@
     padding: 20px;
     width: 200px;
     height: 150px;
-    margin-left: 50%;
-    margin-top: 10%;
+    display: inline-block;
+    margin: 3%;
+}
+
+
+.tankCard {
+    background-color: rgb(75, 75, 198);
+    border-radius: 25px;
+    padding: 20px;
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+    margin: 3%;
+}
+
+.reservoirCard {
+    background-color: rgb(24, 136, 78);
+    border-radius: 25px;
+    padding: 20px;
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+    margin: 3%;
+}
+
+.condominiumCard {
+    background-color: rgba(141, 141, 191, 0.543);
+    border-radius: 25px;
+    padding: 20px;
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+    margin: 3%;
 }
