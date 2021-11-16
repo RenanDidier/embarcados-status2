@@ -112,7 +112,7 @@ function ReadNotes() {
             </div>
 
             <div onClick={updateReservoir} className="reservoirCard">
-                <img src={reservoir_asset} alt="Tank" />
+                <img src={reservoir_asset} alt="reservoir" />
                 <p>Reservoir Level</p>
                 <reservoirContext.Provider value = {reservoirValue}>
                         <reservoirContext.Consumer>
@@ -122,7 +122,7 @@ function ReadNotes() {
             </div>
 
             <div onClick={updateCondominium} className="condominiumCard">
-                <img src={condominium_asset} alt="Tank" />
+                <img src={condominium_asset} alt="condominium" />
                 <p>Condominium Level</p>
                 <condominiumContext.Provider value = {condominiumValue}>
                         <condominiumContext.Consumer>
